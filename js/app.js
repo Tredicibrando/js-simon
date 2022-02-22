@@ -23,6 +23,13 @@ alert(`
 `);
 
 let activeIndex = 0;
+let time = 0;
+
+const timeElement = document.getElementById('timer');
+timeElement.innerHTML = time;
+
+let clock = setInterval()
+
 
 numeri.forEach(element => {
     let numeroGiocatore = parseInt(prompt(''));
