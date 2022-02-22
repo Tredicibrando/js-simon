@@ -25,26 +25,39 @@ alert(`
 let activeIndex = 0;
 let time = 0;
 
-const timeElement = document.getElementById('timer');
+let timeElement = document.getElementById('timer');
 timeElement.innerHTML = time;
 
-let clock = setInterval()
-
-
-numeri.forEach(element => {
-    let numeroGiocatore = parseInt(prompt(''));
-    console.log(numeroGiocatore)
-
-    if(numeroGiocatore !== element){
-        console.log('mi dispiace la combinazione è errata')
+let clock = setInterval( ( ) => {
+    if( time !== 30){
+        time++;
+        timeElement.innerHTML = time;
     } else {
-        console.log(`congratulazioni! i numeri sono ${numeroGiocatore},${element}`)
-        activeIndex++;
+        clearInterval(clock);
+        runPromt()
     }
- });
+}, 1000)
 
- console.log(activeIndex)
 
+function runPromt(){
+    numeri.forEach(element => {
+        let numeroGiocatore = parseInt(prompt(''));
+        console.log(numeroGiocatore)
+    
+        if(numeroGiocatore !== element && numeroGiocatore !== isNaN){
+            console.log('mi dispiace la combinazione è errata')
+        
+        } else {
+            console.log(`congratulazioni! i numeri sono ${numeroGiocatore},${element}`)
+            activeIndex++;
+        }
+     });
+     
+    
+     console.log(`questo è il punteggio: ${activeIndex}`)
+    
+}
+    
 
 
 
